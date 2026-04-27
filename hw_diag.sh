@@ -64,6 +64,24 @@ if [ -n "$DISCO" ]; then
         echo -e "Avaliação do Controlador: ${VERMELHO}FALHA DETECTADA (Possível risco de perda de dados)${NC}"
     fi
 fi
+# --- MÓDULO 5: TEMPERATURA DA CPU ---
+echo -e "\n${VERDE}[5/5] Monitoramento Térmico (CPU)${NC}"
+
+# Instala o lm_sensors se não estiver presente
+if ! command -v sensors &> /dev/null; then
+    echo -e "${AMARELO}Instalando pacote lm_sensors...${NC}"
+    dnf install -y lm_sensors > /dev/null 2>&1
+fi
+
+# Busca a temperatura capturando os padrões mais comuns (AMD Tctl ou Intel Core/Package)
+TEMP_CPU=$(sensors 2>/dev/null | grep -iE 'tctl|package id 0|core 0' | head -n 1 | awk '{print $2}')
+
+if [ -n "$TEMP_CPU" ]; then
+    echo -e "Temperatura Atual: ${AMARELO}$TEMP_CPU${NC}"
+    echo -e "${AZUL}(Dica de Bancada: Temperaturas em repouso acima de 55°C-60°C indicam necessidade de troca de pasta térmica.)${NC}"
+else
+    echo -e "${VERMELHO}Sensor térmico não detectado de imediato. Pode ser necessário rodar 'sensors-detect'.${NC}"
+fi
 
 echo -e "\n${AZUL}========================================${NC}"
 echo -e "${VERDE}Diagnóstico concluído!${NC}"
