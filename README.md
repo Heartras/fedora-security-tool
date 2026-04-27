@@ -27,3 +27,5 @@ Este projeto integra conhecimentos práticos e teóricos adquiridos em:
 
 3. Execute como root:
    sudo ./fedora_boost.sh
+=======
+# Fedora 43 Power-Up & Security Tool

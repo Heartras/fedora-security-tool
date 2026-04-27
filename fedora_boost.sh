@@ -52,7 +52,10 @@ fi
 echo -e "\n[2/2] Verificando Hardening Inicial..."
 
 # Verificando o SELinux (Conceito de SO 1 e Segurança)
+HEAD
 STATUS_SELINUX=$(sestatus | awk '{print $3}')
+STATUS_SELINUX=$(sestatus | grep "SELinux status" | awk '{print $3}')
+fix-temporaria
 echo "Status do SELinux: $STATUS_SELINUX"
 
 # Garantindo que o Firewall esteja ativo
