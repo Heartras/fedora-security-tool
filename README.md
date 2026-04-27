@@ -10,6 +10,13 @@ Este script Bash foi desenvolvido para automatizar o setup inicial, a otimizaç�
 - **Auditoria de Rede:** Módulo integrado para visualização de portas e serviços em escuta.
 - **Sistema de Logs:** Registro detalhado de todas as operações para auditoria e troubleshooting.
 
+### 2. hw_diag.sh (Diagnóstico de Hardware)
+Script para triagem rápida de componentes físicos.
+- **Resumo do Sistema:** Identificação de CPU e total de memória RAM.
+- **Saúde do Disco (S.M.A.R.T.):** Consulta direta à integridade de SSDs e HDDs.
+- **Velocidade de Leitura:** Teste de desempenho de IO (Input/Output) da unidade de armazenamento.
+- **Monitoramento de Memória:** Cálculo em tempo real do consumo e disponibilidade de RAM.
+
 ## 🎓 Contexto Acadêmico e Profissional
 
 Este projeto integra conhecimentos práticos e teóricos adquiridos em:
